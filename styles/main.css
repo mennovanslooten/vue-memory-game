@@ -73,6 +73,7 @@ html, body {
 
 /* entire container, keeps perspective */
 .card-container {
+    transition: 0.6s;
     perspective: 1000px;
     margin: 0.5vw;
 }
@@ -130,5 +131,5 @@ html, body {
 }
 
 .owned {
-    visibility: hidden;
+    opacity: 0;
 }

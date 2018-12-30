@@ -1,5 +1,4 @@
-// import MemoryGame from '../data/MemoryGame.js';
-import { gameTitleComponent, cardListComponent, cardComponent, playerListComponent } from './components.js';
+import { gameTitleComponent, cardListComponent, playerListComponent } from './components.js';
 import { store } from '../store/store.js';
 
 console.log('creating app');
