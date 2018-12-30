@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background: #EEE;
+    color: #333;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#app {
+    margin: 0 10vw;
+    display: grid;
+    grid-template-columns: 60vw 20vw;
+    grid-template-rows: 10vw auto;
+}
+
+.game-title-container {
+    grid-column: 1 / 2;
+    grid-row: 1 / 1;
+}
+
+.game-title {
+    font-size: 4vw;
+    line-height: 10vw;
+}
+
+.game-cards-container {
+    grid-column: 1 / 2;
+    grid-row: 2 / 2;
+ }
+
+.game-players-container {
+    grid-column: 2 / 3;
+    grid-row: 2 / 2;
+}
+
+.game-players {
+    list-style: none;
+    color: #999;
+    font-size: 2vw;
+    line-height: 4vw;
+    padding: .5vw;
+}
+
+.game-players .player {
+    padding: .5vw;
+}
+
+.game-players .current {
+    color: #000;
+    background: white;
+}
+
+.player-name {
+    font-weight: bold;
+}
+
+.player-score {
+    float: right;
+}
+
+.cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+/* entire container, keeps perspective */
+.card-container {
+    perspective: 1000px;
+    margin: 0.5vw;
+}
+
+/* flip the pane when hovered */
+.open .card,
+.owned .card {
+    transform: rotateY(180deg);
+}
+
+.card-container,
+.back,
+.face {
+    width: 14vw;
+    height: 14vw;
+    border-radius: 10px;
+}
+
+/* flip speed goes here */
+.card {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide face of pane during swap */
+.back, .face {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* back pane, placed above face */
+.back {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+    background: #999;
+    cursor: pointer;
+}
+
+.back:hover {
+    background: #CCC;
+}
+
+/* face, initially hidden pane */
+.face {
+    transform: rotateY(180deg);
+    background: #CCC;
+    font-size: 8vw;
+    line-height: 14vw;
+    box-shadow: 0 0 40px 10px #333 inset;
+    text-align: center;
+}
+
+.owned {
+    visibility: hidden;
+}

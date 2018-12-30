@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Memory</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="game-title-container">
+            <game-title v-bind:player="currentPlayer"></game-title>
+        </div> 
+        <div class="game-cards-container">
+            <card-list v-bind:cards="cards"></card-list>
+        </div>
+        <div class="game-players-container">
+            <player-list v-bind:players="players" v-bind:current-player="currentPlayer"></player-list>
+        </div> 
+    </div>
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="scripts/lib/vue.js"></script>
+    <script src="scripts/lib/vuex.js"></script>
+    <script type="module" src="./scripts/ui/app.js"></script>
+
+</body>
+
+</html>
